@@ -1,0 +1,28 @@
+spring:
+# Disable feature detection by this undocumented parameter. Check the org.hibernate.engine.jdbc.internal.JdbcServiceImpl.configure method for more details.
+  jpa:
+    properties.hibernate:
+      temp.use_jdbc_metadata_defaults: true
+      use_sql_comments: false
+      create_empty_composites.enabled: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name:
+    type:
+
+
+  data.rest.detection-strategy: annotated
+
+  jackson:
+    default-property-inclusion: always
+    property-naming-strategy: SNAKE_CASE
+    dateFormat: yyyy-MM-dd'T'HH:mm:ss.SSSZ
+    deserialization.FAIL_ON_UNKNOWN_PROPERTIES: false
+    serialization.indent_output: true
+
+  output.ansi.enabled: detect
