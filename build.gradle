@@ -23,6 +23,7 @@ apply plugin: "java"
 apply plugin: "io.spring.dependency-management"
 apply plugin: "org.springframework.boot"
 apply plugin: "idea"
+apply plugin: 'checkstyle'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -42,4 +43,37 @@ dependencies {
 jar {
     baseName = "broker-backend"
     version = "0.1"
+}
+
+checkstyle {
+
+    project.ext.checkstyleVersion = '8.12'
+    project.ext.sevntuChecksVersion = '1.32.0'
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://sevntu-checkstyle.github.com/sevntu.checkstyle/maven2"
+        }
+    }
+
+    ignoreFailures = true
+    configFile = file("${project.rootDir}/config/checkstyle.xml")
+
+    reportsDir = file("$project.buildDir/reports/checkstyle")
+
+    checkstyleMain {
+        source = sourceSets.main.allSource
+    }
+
+    configurations {
+        checkstyle
+    }
+
+    dependencies{
+        assert project.hasProperty("checkstyleVersion")
+
+        checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"
+        checkstyle "com.github.sevntu-checkstyle:sevntu-checks:${sevntuChecksVersion}"
+    }
 }

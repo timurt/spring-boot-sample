@@ -5,10 +5,11 @@ import com.backend.tasks.crud.UserRepository;
 import com.backend.tasks.repository.Organization;
 import com.backend.tasks.repository.User;
 import com.backend.tasks.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {

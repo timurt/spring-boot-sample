@@ -1,12 +1,12 @@
 package com.backend.tasks;
 
+import javax.sql.DataSource;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-
-import javax.sql.DataSource;
 
 @SpringBootApplication(scanBasePackages = "com.backend.tasks")
 public class Application {
@@ -14,6 +14,11 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * Produces H2 datasource.
+     *
+     * @return H2 datasource
+     */
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()

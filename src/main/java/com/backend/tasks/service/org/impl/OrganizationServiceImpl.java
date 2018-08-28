@@ -3,10 +3,11 @@ package com.backend.tasks.service.org.impl;
 import com.backend.tasks.crud.OrganizationRepository;
 import com.backend.tasks.repository.Organization;
 import com.backend.tasks.service.org.OrganizationService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
