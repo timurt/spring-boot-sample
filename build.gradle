@@ -24,6 +24,7 @@ apply plugin: "io.spring.dependency-management"
 apply plugin: "org.springframework.boot"
 apply plugin: "idea"
 apply plugin: 'checkstyle'
+apply plugin: "jacoco"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -75,5 +76,14 @@ checkstyle {
 
         checkstyle "com.puppycrawl.tools:checkstyle:${checkstyleVersion}"
         checkstyle "com.github.sevntu-checkstyle:sevntu-checks:${sevntuChecksVersion}"
+    }
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("$project.buildDir/reports/jacoco")
     }
 }
