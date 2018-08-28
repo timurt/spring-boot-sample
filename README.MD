@@ -7,6 +7,7 @@ Starting server
 
 Open url `localhost:8080`
 
+
 ##Testing
 
 To run tests
@@ -23,6 +24,7 @@ Reports are located inside _build/reports/jacoco_ folder.
 To open report 
 
     firefox build/reports/jacoco/index.html
+    
     
 ## Checkstyle    
     
